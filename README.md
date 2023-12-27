@@ -24,7 +24,8 @@ RESTful API: RESTful API (Representational State Transfer API) is an architectur
 - {
 -   "age": 8
 - }
-  3. Response:
+
+3. Response:
 - The response is the information returned from the server after processing the request. It typically includes an HTTP status and data (usually in the form of JSON or XML).
 - For example:
 - 200 OK: 
@@ -37,7 +38,8 @@ RESTful API: RESTful API (Representational State Transfer API) is an architectur
 - {
 -   "error": "User not found"
 - }
-  4. Status:
+
+4. Status:
 - Status is a code that represents the status of an HTTP request. The status code is included in the HTTP response.
 - 200 OK: The request was successful.
 - 201 Created: The resource has been created successfully.
