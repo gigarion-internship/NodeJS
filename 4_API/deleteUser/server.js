@@ -11,6 +11,7 @@ app.delete('/deleteUser', function (req, res) {
         delete data["user" + 2];
 
         console.log(data);
+        // hàm call back sẽ được gọi khi quá trình hoàn tất hoặc gặp lỗi
         res.end(JSON.stringify(data));
     });
 })
