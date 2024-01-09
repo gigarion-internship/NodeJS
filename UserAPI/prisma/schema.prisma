@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Khối generator chỉ định nhà cung cấp cho Prisma client
+generator client {
+  provider = "prisma-client-js"
+}
+// Khối datasource đang định nghĩa kết nối cơ sở dữ liệu
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+// Định nghĩa mô hình cho thực thể "Note"
+model Note {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  title     String?
+  description      String?
+}
+// file prisma/user.model.prisma
+
+model User {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now()) 
+  username  String?
+  email     String?
+}
