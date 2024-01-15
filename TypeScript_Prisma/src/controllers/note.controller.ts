@@ -1,6 +1,6 @@
 
 import { Request, Response } from 'express';
-import { NoteModel } from '../models/note.repository';
+import { NoteModel } from '../repositories/note.repository';
 import { CreateNoteSchema, Note } from '../types/note.type';
 
 export const getAll = async (req: Request, res: Response): Promise<void> => {

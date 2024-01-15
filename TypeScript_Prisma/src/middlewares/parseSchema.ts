@@ -1,8 +1,11 @@
-
 import { Request, Response, NextFunction } from 'express';
-import { z } from 'zod';
+import { z, ZodObject } from 'zod';
 
-const parseSchema = (schema: z.ZodObject<any, any, any>, req: Request, res: Response, next: NextFunction): void => {
+const parseSchema = (schema: ZodObject<any, any, any>) => (
+    req: Request,
+    res: Response,
+    next: NextFunction
+): void => {
     try {
         const result = schema.safeParse(req.body);
         if (!result.success) {
@@ -15,6 +18,5 @@ const parseSchema = (schema: z.ZodObject<any, any, any>, req: Request, res: Resp
         res.status(500).json({ status: 'Internal Server Error', data: { error } });
     }
 };
-
 
 export default parseSchema;
