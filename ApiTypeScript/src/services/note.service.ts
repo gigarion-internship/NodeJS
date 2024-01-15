@@ -17,6 +17,7 @@ class NoteService {
         const note: Note = {
             id: this.notes.length + 1,
             tittle: newNote.tittle,
+            number: newNote.number,
             description: newNote.description,
             createdAt: moment().toDate(), // Lấy ngày giờ hiện tại
         };
@@ -27,7 +28,7 @@ class NoteService {
 
     async updateNote(noteId: number, updatedNote: Note): Promise<Note | undefined> {
         const noteIndex = this.notes.findIndex((u) => u.id === noteId);
-
+        // Kiểm tra xem ghi chú có tồn tại trong mảng không
         if (noteIndex !== -1) {
             this.notes[noteIndex] = { ...this.notes[noteIndex], ...updatedNote };
             return this.notes[noteIndex];

@@ -17,6 +17,7 @@ app.post('/api/users', userController.createUser.bind(userController));
 app.put('/api/users/:id', userController.updateUser.bind(userController));
 app.delete('/api/users/:id', userController.deleteUser.bind(userController));
 const noteController = new NoteController();
+
 app.get('/api/notes', noteController.getAllNotes.bind(noteController));
 app.get('/api/notes/:id', noteController.getNoteById.bind(noteController));
 app.post('/api/notes', noteController.createNote.bind(noteController));

@@ -1,0 +1,24 @@
+// file prisma/note.model.prisma
+model Note {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  title     String?
+  description String?
+}
+
+model User {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  username  String?
+  email     String?
+}
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define your datasource, specifying the database provider and connection URL
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
