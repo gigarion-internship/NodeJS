@@ -1,4 +1,4 @@
-// middlewares/parseSchema.ts
+
 import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
 
@@ -9,7 +9,6 @@ const parseSchema = (schema: z.ZodObject<any, any, any>, req: Request, res: Resp
             res.status(400).json({ status: 'Bad Request', data: { error: result.error } });
         } else {
             req.body = result.data;
-            // Gọi next() để tiếp tục xử lý request
             next();
         }
     } catch (error) {

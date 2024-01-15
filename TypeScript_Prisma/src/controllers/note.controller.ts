@@ -1,8 +1,9 @@
-// controllers/note.controller.ts
-import { Request, Response } from 'express';
-import { NoteModel, CreateNoteSchema, Note } from '../models/note.model';
 
-export const getAll1 = async (req: Request, res: Response): Promise<void> => {
+import { Request, Response } from 'express';
+import { NoteModel } from '../models/note.repository';
+import { CreateNoteSchema, Note } from '../types/note.type';
+
+export const getAll = async (req: Request, res: Response): Promise<void> => {
     try {
         const data: Note[] = await NoteModel.getAll();
         res.status(200).json({ data });
@@ -21,7 +22,7 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-// controllers/note.controller.ts
+
 export const create = async (req: Request, res: Response): Promise<void> => {
     try {
         const data: Note = await NoteModel.create(req.body);
